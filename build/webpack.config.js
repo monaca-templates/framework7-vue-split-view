@@ -56,8 +56,12 @@ module.exports = {
     },
   },
   optimization: {
+    minimize: true,
+    noEmitOnErrors: true,
     minimizer: [new TerserPlugin({
+      cache: true,
       sourceMap: true,
+      parallel: true,
     })],
   },
   module: {
@@ -197,6 +201,9 @@ module.exports = {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
+        caseSensitive: true,
+        conservativeCollapse: true,
+        removeAttributeQuotes: true,
         useShortDoctype: true
       } : false,
     }),
